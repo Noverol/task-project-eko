@@ -21,7 +21,7 @@ import {
 } from '@/components/ui/select';
 import { toast } from 'sonner';
 
-export function CreateTaskDialog({ children }: { children: React.ReactNode }) {
+export function CreateTaskDialog({ children }: { children: React.ReactElement }) {
   const [open, setOpen] = useState(false);
   const [title, setTitle] = useState('');
   const [category, setCategory] = useState('Personal');
@@ -67,7 +67,7 @@ export function CreateTaskDialog({ children }: { children: React.ReactNode }) {
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
               <label className="text-sm font-medium">Category</label>
-              <Select value={category} onValueChange={setCategory}>
+              <Select value={category} onValueChange={(val) => val && setCategory(val)}>
                 <SelectTrigger className="bg-muted/50 border-none">
                   <SelectValue placeholder="Category" />
                 </SelectTrigger>
@@ -80,7 +80,7 @@ export function CreateTaskDialog({ children }: { children: React.ReactNode }) {
             </div>
             <div className="space-y-2">
               <label className="text-sm font-medium">Priority</label>
-              <Select value={priority} onValueChange={setPriority}>
+              <Select value={priority} onValueChange={(val) => val && setPriority(val)}>
                 <SelectTrigger className="bg-muted/50 border-none">
                   <SelectValue placeholder="Priority" />
                 </SelectTrigger>

@@ -22,7 +22,7 @@ const themeColors = [
   { name: 'Cyber Purple', value: '#a855f7' },
 ];
 
-export function EditProfileDialog({ children, user }: { children: React.ReactNode, user: any }) {
+export function EditProfileDialog({ children, user }: { children: React.ReactElement, user: any }) {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState(user?.name || '');
   const [bio, setBio] = useState(user?.bio || '');
